@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog2</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+      <%= link_to 'Home', '/' %>
+      <%= link_to 'About', '/' %>
+      <%= link_to 'Article Page', '/articles' %>
+      <%= link_to 'Contact', '/' %>
+
+      <%= link_to 'Log out', '/logout', {method: 'post', local: true} if logged_in?%>
+      <% if !logged_in? %>
+      <%= link_to 'Sign Up', '/signup' %>
+      <%= link_to 'Login', '/signin' %>
+      <% end%>
+    </nav>
+    </header>
+    <p id="notice"><%= notice %></p>
+    <%= yield %>
+  </body>
+</html>
